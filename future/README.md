@@ -107,6 +107,19 @@ This will display the help for the Gazebo simulation tool, verifying that the Ga
    ```bash
    ros2 topic list
 
+
+Use a Virtual Display with Xvfb (if GUI is required)
+apt update
+apt install -y xvfb
+
+Set Up Xvfb and Launch Gazebo with Virtual Display:
+After installing Xvfb, set up the virtual display and run Gazebo using it:
+# Start Xvfb on display :99
+Xvfb :99 -screen 0 1024x768x16 &
+
+# Start Gazebo in server mode (without GUI) or try with GUI if needed
+gz sim
+
 **Running Gazebo:**
 
 1. Start Gazebo by running:
@@ -126,6 +139,7 @@ This will display the help for the Gazebo simulation tool, verifying that the Ga
 Once you’re done, you can save your Docker container state as a new image:
 ```bash
     docker commit ros2_gazebo_harmonic ros2_gazebo_setup_image
+    
 ```
 You can now reuse this image for future projects without having to reinstall ROS 2 and Gazebo.
 

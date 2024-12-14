@@ -31,7 +31,3 @@ Ensure the following tools and libraries are installed:
 - OpenCV  
 - NumPy  
 - Matplotlib  
-
-Install all dependencies using the following command:  
-```bash
-pip install -r requirements.txt

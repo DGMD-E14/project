@@ -1,0 +1,83 @@
+# **Autonomous Mars Rover Navigation System**
+
+## **Project Overview**
+This project develops an **autonomous navigation system** for a Mars rover that detects large obstacles, calculates collision-free paths, and visualizes the results. The system integrates computer vision, machine learning, and the **A\*** pathfinding algorithm to simulate rover navigation across Mars terrain.
+
+---
+
+## **Dataset**
+This project uses the publicly available **AI4MARS Dataset** provided by NASA, which contains annotated Mars terrain images captured by the Curiosity Rover.  
+- **Link to Dataset**: [AI4MARS Dataset](https://data.nasa.gov/Space-Science/AI4MARS-A-Dataset-for-Terrain-Aware-Autonomous-Dri/cykx-2qix/data)
+
+---
+
+## **Installation Instructions**
+Follow these steps to set up the project:
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd [your directory]
+
+	2.	Install Dependencies
+Ensure Python 3.8+ is installed. 
+
+	3.	Add Input Images
+Place Mars terrain images into the following directory:
+
+data/sample_images/
+
+Images must be in .jpg or .png format.
+
+	4.	Run the Project
+Execute the main script to process images, detect obstacles, calculate paths, and visualize the outputs:
+
+python scripts/main.py
+
+Replicating Results
+
+To replicate the results:
+	1.	Clone the repository and install dependencies.
+	2.	Place Mars terrain images in the data/sample_images/ folder.
+	3.	Run the main script:
+
+python scripts/main.py
+
+
+	4.	Visualized outputs (with rover path overlays) will be saved in the results/output_images/ folder.
+
+Technical Notes
+
+Obstacle Detection
+	•	Canny Edge Detection: Highlights edges in grayscale terrain images.
+	•	Contour Filtering: Filters out noise and detects significant obstacles with areas larger than 500 pixels.
+	•	Grid Mapping: Divides images into a 50x50 grid, where:
+	•	Grid cells containing obstacles are marked as 1.
+	•	Clear cells are marked as 0.
+
+Pathfinding
+	•	The A* algorithm dynamically calculates the most efficient path from:
+	•	Start Point: Bottom center of the grid.
+	•	Goal Point: Top row of the grid.
+	•	Obstacles marked as 1 are avoided to ensure a collision-free route.
+	•	If no valid path exists, the system outputs: “No path found”.
+
+Visualization
+
+The computed path is overlaid on the original terrain image using the following markers:
+	•	Green: Path cells.
+	•	Blue: Start point.
+	•	Red: Goal point.
+
+Dependencies
+
+tensorflow
+opencv-python
+numpy
+matplotlib
+
+Contact Information
+
+For questions or feedback, please reach out:
+	•	Project Lead: Cameron Souza
+	•	Email: cas7666@g.harvard.edu
